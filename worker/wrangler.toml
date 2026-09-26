@@ -1,0 +1,7 @@
+name = "orthodox-calendar-api"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+# Comma-separated list of origins allowed to call the API ("*" = any).
+ALLOWED_ORIGINS = "https://f34rr.github.io,http://localhost:5173,http://127.0.0.1:5173"

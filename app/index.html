@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e0e0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Menologion">
+  <meta name="description" content="Orthodox calendar (Julian): fasting, saints, readings and hymns of each day.">
+  <title>Menologion</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Month view -->
+  <section id="month-view" class="view active" aria-label="Month">
+    <header class="bar">
+      <button class="icon-btn" id="prev-month" aria-label="Previous month">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <div class="bar-title">
+        <h1 id="month-title"></h1>
+        <p id="month-sub" class="sub"></p>
+      </div>
+      <button class="icon-btn" id="next-month" aria-label="Next month">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </header>
+
+    <div class="scroll">
+      <div class="weekdays" aria-hidden="true">
+        <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+      </div>
+      <div id="grid" class="grid" role="grid"></div>
+      <p id="month-status" class="status"></p>
+
+      <div class="row-actions">
+        <button id="today-btn" class="pill">Today</button>
+        <button id="legend-btn" class="pill ghost" aria-expanded="false">Key</button>
+      </div>
+
+      <div id="legend" class="legend" hidden></div>
+
+      <article id="today-card" class="card today-card" tabindex="0" role="button" aria-label="Open today"></article>
+    </div>
+  </section>
+
+  <!-- Day view -->
+  <section id="day-view" class="view" aria-label="Day">
+    <header class="bar">
+      <button class="icon-btn back" data-back aria-label="Back to month">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span id="day-back-label">Month</span>
+      </button>
+      <div class="bar-spacer"></div>
+      <button class="icon-btn" id="prev-day" aria-label="Previous day">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <button class="icon-btn" id="next-day" aria-label="Next day">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </header>
+    <div class="scroll" id="day-content"></div>
+  </section>
+
+  <!-- Saint view -->
+  <section id="saint-view" class="view" aria-label="Saint">
+    <header class="bar">
+      <button class="icon-btn back" data-back aria-label="Back to day">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span>Day</span>
+      </button>
+      <div class="bar-spacer"></div>
+    </header>
+    <div class="scroll" id="saint-content"></div>
+  </section>
+
+  <div id="lightbox" class="lightbox" hidden><img alt=""></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
